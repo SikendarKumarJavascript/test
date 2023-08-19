@@ -1,11 +1,11 @@
-document.querySelector("#form").addEventListener("submit", (e) => {
+const formDataSubmit = () => {
   e.preventDefault();
   const loader = document.querySelector(".loader-modal");
   const loaderImage = sessionStorage.getItem("discountium.exitpopup.loader");
   document.querySelector(".loader img").src = loaderImage;
   const storeLogo = sessionStorage.getItem("discountium.exitpopup.storeLogo");
   document.querySelector(".Logo").src = storeLogo;
-  document.querySelector("#discount-modal").style.display = "none";
+  document.querySelector(".u-popup-container").style.display = "none";
   document.querySelector(".u-popup-container.thankYou").style.display = "none";
   document.querySelector("#shopify-section-popup-model").style.display = "none";
   loader.style.display = "flex";
@@ -38,7 +38,7 @@ document.querySelector("#form").addEventListener("submit", (e) => {
         document.querySelector(".coupon-code").value = content.code;
         loader.style.display = "none";
       } else {
-        document.querySelector("#discount-modal").style.display = "block";
+        document.querySelector(".u-popup-container").style.display = "block";
         let messageError = document.querySelector(".error-message-email");
         messageError.innerHTML = content.message;
         messageError.style.display = "block";
@@ -49,7 +49,7 @@ document.querySelector("#form").addEventListener("submit", (e) => {
       loader.style.display = "none";
     }
   })();
-});
+};
 
 
 let reopenIcon = document.querySelector("#discount_reopen-icon");
