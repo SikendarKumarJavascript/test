@@ -70,32 +70,6 @@ const handleClick = () => {
   localStorage.setItem("popupState", popupState);
 };
 
-reopenIcon.addEventListener("click", async () => {
-  const discountCode = sessionStorage.getItem(
-    "discountium.exitpopup.discountCode"
-  );
-  document.querySelector(".coupon-code").value = discountCode;
-  document.querySelector(".u-popup-container.thankYou").style.display = "block";
-  popupState = "open";
-  localStorage.setItem("popupState", popupState);
-  reopenIcon.style.display = "none";
-  document.querySelector("#shopify-section-popup-model").style.display = "flex";
-
-  if (discountCode === null) {
-    document.querySelector(".u-popup-container").style.display = "block";
-    document.querySelector("#shopify-section-popup-model").style.display =
-      "flex";
-    document.querySelector(".u-popup-container.thankYou").style.display = "none";
-    await tokenCreate();
-  } else {
-    // get theme json from backend padding
-    await getDomainTheme();
-    if (popupState === "open") {
-      document.querySelector("#discount_reopen-icon").style.display = "none";
-    }
-  }
-});
-
 const timerFunction = () => {
   let countDownDate = sessionStorage.getItem("product-count");
   if (countDownDate) {
