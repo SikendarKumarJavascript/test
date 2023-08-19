@@ -51,7 +51,6 @@ const formDataSubmit = () => {
   })();
 };
 
-
 let reopenIcon = document.querySelector("#discount_reopen-icon");
 
 const handleClickThankYou = () => {
